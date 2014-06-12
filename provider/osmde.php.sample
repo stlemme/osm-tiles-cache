@@ -1,0 +1,10 @@
+<?php
+
+$urls = array(
+	"http://a.tile.openstreetmap.de/tiles/osmde/${z}/${x}/${y}.png",
+	"http://b.tile.openstreetmap.de/tiles/osmde/${z}/${x}/${y}.png",
+	"http://c.tile.openstreetmap.de/tiles/osmde/${z}/${x}/${y}.png",
+	"http://d.tile.openstreetmap.de/tiles/osmde/${z}/${x}/${y}.png"
+);
+
+?>
