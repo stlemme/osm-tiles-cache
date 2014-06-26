@@ -3,13 +3,23 @@
 <IfModule mod_rewrite.c>
     RewriteEngine on
 
+    # mandatory when using alias
     RewriteBase /api/tiles
 
     RewriteRule ^([a-z]+/[0-9]+/[0-9]+/[0-9]+\.png)$  cache/$1 [NC]
 
     RewriteCond %{REQUEST_FILENAME}  !-f
     RewriteRule ^cache/([a-z]+)/([0-9]+)/([0-9]+)/([0-9]+)\.png$  load.php?provider=$1&z=$2&x=$3&y=$4
+
+    # secure .git directory if any
+    RewriteRule ^\.git/.*$  -  [F]
 </IfModule>
+
+# secure other git files
+<FilesMatch "(\.git.*)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
 
 
 <IfModule mod_headers.c>
